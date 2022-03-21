@@ -64,18 +64,19 @@ int main(int argc, char const *argv[]){
         }
     }
     
-    clock_t start_time = clock();
+    double  start_time = omp_get_wtime();
     omp_set_num_threads(workers);
     jacobi(grid, new_grid, maxdiff);
-    clock_t end_time = clock();
+    double end_time = omp_get_wtime();
     print_to_file(new_grid);
 
     double abs_max_diff = 0.0;
     for(int i = 0; i < workers; i++)
         if(maxdiff[i] > abs_max_diff) abs_max_diff = maxdiff[i];
 
-    printf("%g\n", abs_max_diff);
-    double sec_elapsed = (double) (end_time-start_time)/CLOCKS_PER_SEC;
+    printf("iters: %d\n", iters);
+    printf("maxDiff: %g\n", abs_max_diff);
+    double sec_elapsed = end_time-start_time;
     printf("%g secs spent\n",sec_elapsed);
     free(grid);
     free(new_grid);
