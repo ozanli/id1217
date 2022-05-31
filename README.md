@@ -1,6 +1,5 @@
 # Ozan Ali
 ICT Bachelor's student at KTH. 
 
-# What is ID1217? 
-ID1217 is the course code for a course named "Concurrent Programming" at KTH. The course teaches about the concurrent and parallel programming practices. Students get the opportunity to write their own project and concurrent programs. An example of the programs can be found in other branches under this repo. 
- 
+# What is this project about? 
+This project implements both sequential and concurrent versions of Jacobi method to find solutions of a strictly diagonally dominant system of linear equations. The main aim of the project is to parallelize the sequential Jacobi method to see how much of a speedup is possible to achieve, i.e. how faster we can make the same solution run.
